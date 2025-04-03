@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo "Abhi project build ho raha hai..."'
+                sh "echo 'Abhi project build ho raha hai...'"
             }
         }
         stage('test') {
             steps {
-                sh 'echo "Abhi project test ho raha hai... on version ${params.VERSION}"'
+                sh "echo 'Abhi project test ho raha hai... on version ${params.VERSION}'"
             }
         }
         stage('deploy') {
@@ -22,14 +22,14 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo "Abhi project deploy ho raha hai on version ${params.VERSION}"'
+                sh "echo 'Abhi project deploy ho raha hai on version ${params.VERSION}'"
             }
         }
     }
 
     post{
         always {
-            sh 'echo "me always block, post ke andar aata mai..."'       
+            sh "echo 'me always block, post ke andar aata mai...'"       
         }
     }
 }
