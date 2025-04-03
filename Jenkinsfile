@@ -12,7 +12,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'echo "Abhi project test ho raha hai... on version ${VERSION}"'
+                sh 'echo "Abhi project test ho raha hai... on version ${params.VERSION}"'
             }
         }
         stage('deploy') {
