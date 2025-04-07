@@ -55,6 +55,9 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 COPY package.json package-lock.json ./
+COPY /home/guest/Desktop/projects/pokemon-kingdom/openssl/pokemon-kingdom.com-server.crt /etc/openssl/pokemon-kingdom.com-server.crt
+COPY /home/guest/Desktop/projects/pokemon-kingdom/openssl/pokemon-kingdom.com-server.key /etc/openssl/pokemon-kingdom.com-server.key
+
 RUN npm ci
 
 COPY . .
