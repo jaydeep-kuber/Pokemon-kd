@@ -1,10 +1,3 @@
-# Tasks 
-    # 1. take light image 
-    # 2. create working directory inside container
-    # 3. copy package files to working directory
-    # 5. install dependancey 
-    # 4. copy project files to working directory
-
 FROM node:18-alpine AS builder
 
 WORKDIR /home/projects/pokemon-kingdom

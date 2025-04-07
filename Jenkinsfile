@@ -1,56 +1,34 @@
-def gvScript
+@library('shared-lib') _
 pipeline {
     agent any
-
-    parameters{
-        choice(name:'VERSION', choices: ['1.0', '2.0', '3.0'], description: 'for selecting vesrion of application')
-        booleanParam(name:'WANT_DELPOY', defaultValue:false ,description: 'for selecting deployment option')
-    
-    }
     stages {
-        // init stage to get scripts
-        stage('init') {
+        stage('code clone') {
+            steps {
+                echo "es stage me git clone ho raha hoga...."
+                git url:"https://github.com/jaydeep-kuber/Pokemon-kd.git" branch: 'master'
+                echo "clone ho gaya"
+            }
+        }
+        stage('init of tools'){
             steps {
                 script{
-                    println "init stage"
-                    gvScript = load "script.groovy"
+                    hello()
                 }
             }
         }
-
         stage('build') {
             steps {
-                script{
-                    gvScript.buildApp()
-                }
             }
         }
 
         stage('test') {
             steps {
-                script{
-                    gvScript.testApp()
-                }
             }
         }
 
         stage('deploy') {
-            when {
-                expression{
-                    params.WANT_DELPOY
-                }
-            }
             steps {
-                script{
-                    gvScript.deployApp()
-                }
             }
-        }
-    }
-
-    post{
-        always {
-            sh "echo 'me always block, post ke andar aata mai...'"       
         }
     }
 }
