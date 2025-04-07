@@ -12,13 +12,17 @@ pipeline {
         stage('init of tools'){
             steps {
                 script{
+                    echo "stage me init of tools ho raha hoga...."
+                    echo "docker install hoga if system me nahi hoga"
                     dockerSetup()
+                    echo "docker setup ho gaya"
                 }
             }
         }
         stage('build') {
             steps {
                 echo "es stage me build ho raha hoga...."
+                sh "docker build -t pokemon-kd.com:latest ."
             }
         }
 
@@ -31,6 +35,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo "es stage me deploy ho raha hoga...."
+                sh "docker compose up -d"
             }
         }
     }
