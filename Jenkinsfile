@@ -5,7 +5,7 @@ pipeline {
         stage('code clone') {
             steps {
                 echo "es stage me git clone ho raha hoga...."
-                git url:"https://github.com/jaydeep-kuber/Pokemon-kd.git" branch:"master"
+                git url:"https://github.com/jaydeep-kuber/Pokemon-kd.git", branch:"master"
                 echo "clone ho gaya"
             }
         }
