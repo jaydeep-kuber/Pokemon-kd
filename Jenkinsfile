@@ -12,7 +12,7 @@ pipeline {
         stage('init of tools'){
             steps {
                 script{
-                    dockerStup()
+                    dockerSetup()
                 }
             }
         }
