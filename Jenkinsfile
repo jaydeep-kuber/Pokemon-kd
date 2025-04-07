@@ -26,16 +26,10 @@ pipeline {
             }
         }
 
-        stage('test') {
-            steps {
-                echo "es stage me test ho raha hoga...."
-            }
-        }
-
         stage('deploy') {
             steps {
                 echo "es stage me deploy ho raha hoga...."
-                sh "docker compose up -d"
+                sh "docker compose down && docker compose up -d"
             }
         }
     }
